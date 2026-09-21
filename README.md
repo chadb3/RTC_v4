@@ -8,11 +8,13 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 
 Working on setting everything up
 
-* unit tests project
-
 * starting on Chapter 1
 
-* looking into Github actions to run tests on push
+## Completed Objectives 
+
+* ✅ (starting) unit tests project
+
+* ✅ looking into Github actions to run tests on push
 
 ## AI usage
 
