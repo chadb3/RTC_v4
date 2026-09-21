@@ -37,5 +37,10 @@ namespace RTC_v4
         {
             return new RTTuple(r, g, b, 0);
         }
+
+        // Code based off AI Answer
+        // I know this code is largley not used after unit tests in chapter 1.
+        public bool IsPoint=>Math.Abs(w - 1.0) < 0.00001;
+        public bool IsVector => Math.Abs(w-0.0) < 0.00001;
     }
 }

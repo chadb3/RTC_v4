@@ -6,15 +6,24 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 
 ## Current Status
 
-Working on setting everything up
+
 
 * starting on Chapter 1
 
 ## Completed Objectives 
 
-* ✅ (starting) unit tests project
+* ✅ Working on setting everything up
+	* ✔️ Created GitHub Repo and performed initial push using Visual Studio.
+	* ✔️ Confirm C# works with a "Hello, World!"
 
-* ✅ looking into Github actions to run tests on push
+* ✅ (starting) unit tests project
+	* ✔️ Created Unit Test Project
+	* ✔️ Linked Main Program
+	* ✔️ Successfully ran first unit test
+
+* ✅ looking into GitHub actions to run tests on push
+	* ✔️ Used AI to create "build-and-test.yml" and to resolve warnings.
+	* ✔️ Successfully ran GitHub Actions on pushes.
 
 ## AI usage
 
