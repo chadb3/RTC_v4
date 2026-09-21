@@ -14,5 +14,15 @@ namespace Ray_Tracer_Tests
             Assert.Equal(3.1, a.z);
             Assert.Equal(1.0, a.w);
         }
+
+        [Fact]
+        public void Test1_2()
+        {
+            var a = new RTTuple(8.3, 4.2, 3, 1.0);
+            Assert.Equal(8.3, a.x);
+            Assert.Equal(4.2, a.y);
+            Assert.Equal(3, a.z);
+            Assert.Equal(1.0, a.w);
+        }
     }
 }
