@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Ray_Tracer_Tests/Ray_Tracer_Tests.csproj" />
   <Project Path="RTC_v4/RTC_v4.csproj" />
 </Solution>
