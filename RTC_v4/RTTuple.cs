@@ -8,7 +8,7 @@ namespace RTC_v4
     /// <summary>
     /// Custom tuple struct for vectors, points, and colors in 3D space.
     /// </summary>
-    public struct RTTuple
+    public readonly struct RTTuple
     {
         public double x {get;}
         public double y {get;}
@@ -37,6 +37,48 @@ namespace RTC_v4
         public static RTTuple color(double r, double g, double b)
         {
             return new RTTuple(r, g, b, 0);
+        }
+
+        public static RTTuple operator +(RTTuple a, RTTuple b)
+        {
+            return new RTTuple(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
+        }
+
+        public static RTTuple operator -(RTTuple a, RTTuple b)
+        {
+            return new RTTuple(a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
+        }
+
+        public static RTTuple operator-(RTTuple a)
+        {
+            return new RTTuple(-a.x, -a.y, -a.z, -a.w);
+        }
+
+        /*public static RTTuple operator *(RTTuple a, RTTuple b)
+        {
+            return new RTTuple(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
+        }*/
+
+        /// <summary>
+        /// Scalar multiplication
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="x"></param>
+        /// <returns> a new RTTuple</returns>
+        public static RTTuple operator *(RTTuple a, double x)
+        {
+            return new RTTuple(a.x*x, a.y*x, a.z*x, a.w*x);
+        }
+        /// <summary>
+        /// Scalar division
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="x"></param>
+        /// <returns>a new RTTuple</returns>
+
+        public static RTTuple operator /(RTTuple a, double x)
+        {
+            return new RTTuple(a.x/x, a.y/x, a.z/x, a.w/x);
         }
 
         public static bool operator ==(RTTuple a, RTTuple b)
