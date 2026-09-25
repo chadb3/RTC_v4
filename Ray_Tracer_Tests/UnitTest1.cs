@@ -138,5 +138,36 @@ namespace Ray_Tracer_Tests
             RTTuple ans = new RTTuple(0.5, -1, 1.5, -2);
             Assert.Equal(ans, a / 2);
         }
+
+        [Fact]
+        public void Test_17_magnitude_1_of_5()
+        {
+
+        }
+
+        [Fact]
+        public void Test_18_magnitude_2_of_5()
+        {
+
+        }
+
+        [Fact]
+        public void Test_19_magnitude_3_of_5()
+        {
+
+        }
+
+        [Fact]
+        public void Test_20_magnitude_4_of_5()
+        {
+
+        }
+
+        [Fact]
+        public void Test_21_magnitude_5_of_5()
+        {
+
+        }
+
     }
 }

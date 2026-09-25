@@ -39,6 +39,11 @@ namespace RTC_v4
             return new RTTuple(r, g, b, 0);
         }
 
+        public readonly double magnitude(RTTuple a)
+        {
+            return Math.Sqrt(Math.Pow(2, a.x) + Math.Pow(2, a.y)+ Math.Pow(2, a.z)+ Math.Pow(2, a.w));
+        }
+
         public static RTTuple operator +(RTTuple a, RTTuple b)
         {
             return new RTTuple(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
