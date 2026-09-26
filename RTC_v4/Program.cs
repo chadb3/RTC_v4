@@ -8,6 +8,7 @@ static void test()
     Console.WriteLine("dsfg !");
     Tuple<int, int> tuple = new Tuple<int, int>(1, 2);
     Console.WriteLine($"Tuple values: {tuple.Item1}, {tuple.Item2}");
+    Console.WriteLine(Math.Pow(2, 9));
 }
 
 return 0;

@@ -67,7 +67,7 @@ namespace Ray_Tracer_Tests
         }
 
         [Fact]
-        public void Test_8_add()
+        public void Test_7_add()
         {
             object a1 = new RTTuple(3, -2, 5, 1);
             object a2 = new RTTuple(-2, 3, 1, 0);
@@ -76,7 +76,7 @@ namespace Ray_Tracer_Tests
         }
 
         [Fact]
-        public void Test_9_subtract_points()
+        public void Test_8_subtract_points()
         {
             RTTuple p1 =  RTTuple.point(3, 2, 1);
             RTTuple p2 =  RTTuple.point(5, 6, 7);
@@ -84,7 +84,7 @@ namespace Ray_Tracer_Tests
             Assert.Equal(ans, p1 - p2);
         }
         [Fact]
-        public void Test_10_Subtract_vector_from_point()
+        public void Test_9_Subtract_vector_from_point()
         {
             RTTuple p = RTTuple.point(3, 2, 1);
             RTTuple v = RTTuple.vector(5, 6, 7);
@@ -92,14 +92,14 @@ namespace Ray_Tracer_Tests
             Assert.Equal(ans, p - v);
         }
         [Fact]
-        public void Test_11_Subtract_2_vectors()
+        public void Test_10_Subtract_2_vectors()
         {
             RTTuple v1 = RTTuple.vector(3, 2, 1);
             RTTuple v2 = RTTuple.vector(5, 6, 7);
             RTTuple ans = RTTuple.vector(-2,-4, -6);
         }
         [Fact]
-        public void Test_12_zero_minus_a_vector()
+        public void Test_11_zero_minus_a_vector()
         {
             RTTuple zero_vec = RTTuple.vector(0, 0, 0);
             RTTuple v = RTTuple.vector(-1, 2, -3);
@@ -108,7 +108,7 @@ namespace Ray_Tracer_Tests
         }
 
         [Fact]
-        public void Test_13_negate_tuple()
+        public void Test_12_negate_tuple()
         {
             RTTuple a = new RTTuple(1, -2, 3, -4);
             RTTuple na = new RTTuple(-1, 2, -3, 4);
@@ -116,7 +116,7 @@ namespace Ray_Tracer_Tests
         }
 
         [Fact]
-        public void Test_14_mult_a_tuple_by_a_scalar()
+        public void Test_13_mult_a_tuple_by_a_scalar()
         {
             RTTuple a = new RTTuple(1, -2, 3, -4);
             RTTuple ans = new RTTuple(3.5, -7, 10.5, -14);
@@ -124,7 +124,7 @@ namespace Ray_Tracer_Tests
         }
 
         [Fact]
-        public void Test_15_mult_a_tuple_by_a_fraction()
+        public void Test_14_mult_a_tuple_by_a_fraction()
         {
             RTTuple a = new RTTuple(1, -2, 3, -4);
             RTTuple ans = new RTTuple(0.5, -1, 1.5, -2);
@@ -132,7 +132,7 @@ namespace Ray_Tracer_Tests
         }
 
         [Fact]
-        public void Test_16_divide_a_tuple_by_a_sclar()
+        public void Test_15_divide_a_tuple_by_a_sclar()
         {
             RTTuple a = new RTTuple(1, -2, 3, -4);
             RTTuple ans = new RTTuple(0.5, -1, 1.5, -2);
@@ -140,33 +140,43 @@ namespace Ray_Tracer_Tests
         }
 
         [Fact]
-        public void Test_17_magnitude_1_of_5()
+        public void Test_16_magnitude_1_of_5()
         {
-
+            RTTuple v = RTTuple.vector(1,0,0);
+            double ans = 1.0;
+            Assert.Equal(ans, v.magnitude());
         }
 
         [Fact]
-        public void Test_18_magnitude_2_of_5()
+        public void Test_17_magnitude_2_of_5()
         {
-
+            RTTuple v = RTTuple.vector(0, 1, 0);
+            double ans = 1.0;
+            Assert.Equal(ans,v.magnitude());
         }
 
         [Fact]
-        public void Test_19_magnitude_3_of_5()
+        public void Test_18_magnitude_3_of_5()
         {
-
+            RTTuple v = RTTuple.vector(0, 0, 1);
+            double ans = 1.0;
+            Assert.Equal(ans, v.magnitude());
         }
 
         [Fact]
-        public void Test_20_magnitude_4_of_5()
+        public void Test_19_magnitude_4_of_5()
         {
-
+            RTTuple v = RTTuple.vector(1, 2, 3);
+            double ans = Math.Sqrt(14);
+            Assert.Equal(ans, v.magnitude());
         }
 
         [Fact]
-        public void Test_21_magnitude_5_of_5()
+        public void Test_20_magnitude_5_of_5()
         {
-
+            RTTuple v = RTTuple.vector(-1, -2, -3);
+            double ans = Math.Sqrt(14);
+            Assert.Equal(ans, v.magnitude());
         }
 
     }
