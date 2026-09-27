@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.IO.Pipelines;
 using RTC_v4;
-
+//old name: UnitTest1.cs
 namespace Ray_Tracer_Tests
 {
     public class UnitTest_RTTuple_Chapter_1
@@ -177,6 +177,71 @@ namespace Ray_Tracer_Tests
             RTTuple v = RTTuple.vector(-1, -2, -3);
             double ans = Math.Sqrt(14);
             Assert.Equal(ans, v.magnitude());
+        }
+
+        [Fact]
+        public void Test_21_normalize_1_of_3()
+        {
+            RTTuple v = RTTuple.vector(4, 0, 0);
+            RTTuple ans = RTTuple.vector(1, 0, 0);
+            Assert.Equal(ans, v.normalize());
+        }
+
+        [Fact]
+        public void Test_21_normalize_2_of_3()
+        {
+            RTTuple v = RTTuple.vector(1, 2, 3);
+            RTTuple ans = RTTuple.vector(1/Math.Sqrt(14), 2/Math.Sqrt(14), 3/Math.Sqrt(14));
+            Assert.Equal(ans, v.normalize());
+        }
+
+        [Fact]
+        public void Test_21_normalize_3_of_3()
+        {
+            RTTuple v = RTTuple.vector(1, 2, 3);
+            RTTuple n = v.normalize();
+            double ans = n.magnitude();
+            Assert.Equal(1, ans);
+        }
+
+        [Fact]
+        public void Test_22_dot_product_1_of_1()
+        {
+            RTTuple a = RTTuple.vector(1, 2, 3);
+            RTTuple b = RTTuple.vector(2, 3, 4);
+            double ans = 20;
+            Assert.Equal(ans, a.Zdot(b));
+        }
+
+        [Fact]
+        public void Test_23_cross_product_1_of_1()
+        {
+            RTTuple a = RTTuple.vector(1, 2, 3);
+            RTTuple b = RTTuple.vector(2, 3, 4);
+            RTTuple ans1 = RTTuple.vector(-1, 2, -1);
+            RTTuple ans2 = RTTuple.vector(1, -2, 1);
+            Assert.Equal(ans1, a.Zcross(b));
+            Assert.Equal(ans2, b.Zcross(a));
+        }
+
+        [Fact]
+        public void test_24_extra_checking_static_dot_1_of_1()
+        {
+            RTTuple a = RTTuple.vector(1, 2, 3);
+            RTTuple b = RTTuple.vector(2, 3, 4);
+            double ans = 20;
+            Assert.Equal(ans, RTTuple.Dot(a, b));
+        }
+
+        [Fact]
+        public void test_25_extra_checking_static_cross_1_of_1()
+        {
+            RTTuple a = RTTuple.vector(1, 2, 3);
+            RTTuple b = RTTuple.vector(2, 3, 4);
+            RTTuple ans1 = RTTuple.vector(-1, 2, -1);
+            RTTuple ans2 = RTTuple.vector(1, -2, 1);
+            Assert.Equal(ans1, RTTuple.Cross(a, b));
+            Assert.Equal(ans2, RTTuple.Cross(b, a));
         }
 
     }

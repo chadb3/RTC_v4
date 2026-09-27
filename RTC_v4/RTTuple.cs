@@ -39,12 +39,85 @@ namespace RTC_v4
             return new RTTuple(r, g, b, 0);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Returns a double</returns>
         public readonly double magnitude()
         {
             // Math.pow(2,9) == 2^9 == 512
             // Math.pow(9,2) == 9^2 == 81
             return Math.Sqrt(Math.Pow(x,2) + Math.Pow(y,2)+ Math.Pow(z,2)+ Math.Pow(w,2));
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>a readonly RTTuple</returns>
+        public readonly RTTuple normalize()
+        {
+            return new RTTuple(x/magnitude(), y/magnitude(), z/magnitude(), w/magnitude());
+        }
+
+        /// <summary>
+        /// *** Marked for deletion ***
+        /// Instance version of dot product
+        /// this is so you can do a.dot(b)
+        /// but I am reading this isn't the best way to do things
+        /// </summary>
+        /// <param name="a">Takes in a RTTuple</param>
+        /// <returns>Returns a double</returns>
+        public readonly double Zdot(RTTuple r)
+        {
+            return this.x * r.x + 
+                   this.y * r.y + 
+                   this.z * r.z + 
+                   this.w * r.w;
+        }
+
+        /// <summary>
+        /// *** Marked for deletion ***
+        /// Cross Product Instance Method
+        /// This is so you can do a.cross(b)
+        /// But reserch shows that the static version might be more correct.
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
+        public readonly RTTuple Zcross(RTTuple r)
+        {
+            return RTTuple.vector(this.y*r.z-this.z*r.y,
+                                 this.z*r.x-this.x*r.z,
+                                 this.x*r.y-this.y*r.x);
+        }
+
+        /// <summary>
+        /// Static version of DOT
+        /// Matches book
+        /// </summary>
+        /// <param name="l"></param>
+        /// <param name="r"></param>
+        /// <returns></returns>
+        public static double Dot(RTTuple l, RTTuple r)
+        {
+            return  l.x * r.x +
+                    l.y * r.y +
+                    l.z * r.z +
+                    l.w * r.w;
+        }
+
+        /// <summary>
+        /// Static version of Cross to match book.
+        /// </summary>
+        /// <param name="l"></param>
+        /// <param name="r"></param>
+        /// <returns></returns>
+        public static RTTuple Cross(RTTuple a, RTTuple b) => RTTuple.vector(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
+
+
+        //*************
+        // * Operators *
+        //*************
+
 
         public static RTTuple operator +(RTTuple a, RTTuple b)
         {
@@ -132,5 +205,8 @@ namespace RTC_v4
         public bool IsPoint=>Math.Abs(w - 1.0) < 0.00001;
         // checks if a tuple is a vector
         public bool IsVector => Math.Abs(w) < 0.00001;
+
+        public override string ToString() => $"X: {x}, y: {y}, z: {z}, w: {w}";
+
     }
 }
