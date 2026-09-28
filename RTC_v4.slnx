@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="Chapter_1_and_2_Project/Chapter_1_and_2_Project.csproj" Id="29e2b7c9-99b7-4380-967b-9b8d1752f41c" />
+  <Project Path="Ray_Tracer_Tests/Ray_Tracer_Tests.csproj" />
   <Project Path="RTC_v4/RTC_v4.csproj" />
 </Solution>
