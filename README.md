@@ -6,7 +6,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 
 ## Current Status
 
-* starting on Chapter 1
+* Starting Chapter 2
 
 ## Completed Objectives 
 
@@ -22,6 +22,10 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 * ✅ looking into GitHub actions to run tests on push
 	* ✔️ Used AI to create "build-and-test.yml" and to resolve warnings
 	* ✔️ Successfully ran GitHub Actions on pushes
+	
+* ✅ Chapter 1
+	* ✔️ Tuple math operations implemented and tested
+	* ✔ End of Chapter 1 Project implemented
 
 ## AI usage
 
