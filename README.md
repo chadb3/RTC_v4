@@ -7,6 +7,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 ## Current Status
 
 * Starting Chapter 2
+	* this one shouldn't be that different from last time.
 
 ## Completed Objectives 
 
@@ -26,6 +27,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 * ✅ Chapter 1
 	* ✔️ Tuple math operations implemented and tested
 	* ✔ End of Chapter 1 Project implemented
+	* ✔ Main difference from last time: uses a struct for significantly less overhead vs a class.
 
 ## AI usage
 

@@ -6,6 +6,8 @@ test();
 norm_test_point();
 testing_dot();
 
+
+return 0;
 static void test()
 {
     Console.WriteLine("TEST!");
@@ -32,5 +34,3 @@ static void testing_dot()
     RTTuple vec2 = RTTuple.vector(2, 3, 4);
     Console.WriteLine(vec1.Zdot(vec2));
 }
-
-return 0;
