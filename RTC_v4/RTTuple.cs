@@ -155,10 +155,17 @@ namespace RTC_v4
             return new RTTuple(-a.x, -a.y, -a.z, -a.w);
         }
 
-        /*public static RTTuple operator *(RTTuple a, RTTuple b)
+        /// <summary>
+        /// This is mainly used for colors
+        /// also called the Hadamard Product
+        /// </summary>
+        /// <param name="a">Color a (left)</param>
+        /// <param name="b">Color b (right)</param>
+        /// <returns>A new color that is the product of a and b</returns>
+        public static RTTuple operator *(RTTuple a, RTTuple b)
         {
             return new RTTuple(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
-        }*/
+        }
 
         /// <summary>
         /// Scalar multiplication
