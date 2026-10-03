@@ -1,11 +1,13 @@
 ﻿using RTC_v4;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 Console.WriteLine("Hello, World!");
 test();
 norm_test_point();
 testing_dot();
-
+basic_canvas_test();
+loop_and_array_behavior_testing();
 
 return 0;
 static void test()
@@ -33,4 +35,31 @@ static void testing_dot()
     RTTuple vec1 = RTTuple.vector(1, 2, 3);
     RTTuple vec2 = RTTuple.vector(2, 3, 4);
     Console.WriteLine(vec1.Zdot(vec2));
+}
+
+static void basic_canvas_test()
+{
+    Console.WriteLine("COLOR");
+    Canvas c = new Canvas(2, 2);
+    Console.WriteLine(c.CanvasImage[0, 0]);
+}
+
+static void loop_and_array_behavior_testing()
+{
+    printl("\nArray and Loop testing");
+    int[,] a = new int[2, 3];
+    printl(a[0, 0].ToString());
+    for(int i =0;i<2;i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            Console.Write($"{a[i, j]} ");
+        }
+        Console.WriteLine("\n");
+    }
+}
+
+static void printl(string msg)
+{
+    Console.WriteLine(msg);
 }

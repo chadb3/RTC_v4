@@ -63,5 +63,28 @@ namespace Ray_Tracer_Tests
             RTTuple c1xc2 = RTTuple.color(0.9, 0.2, 0.04);
             Assert.Equal(c1xc2, c1 * c2);
         }
+
+        [Fact]
+        public void Test_7_Creating_a_Canvas()
+        {
+            Canvas c = new Canvas(10, 20);
+            Assert.Equal(10, c.height);
+            Assert.Equal(20, c.width);
+            // Loop checking color
+            // All colors should be 0,0,0
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 20; j++)
+                {
+                    Assert.Equal(RTTuple.color(0,0,0),c.CanvasImage[i,j]);
+                }
+            }
+        }
+
+        [Fact]
+        public void Test_8_Writing_Pixles_to_a_Canvas()
+        {
+
+        }
     }
 }
