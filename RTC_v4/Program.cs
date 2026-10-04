@@ -54,6 +54,7 @@ static void loop_and_array_behavior_testing()
         for (int j = 0; j < 3; j++)
         {
             Console.Write($"{a[i, j]} ");
+            //Console.Write($"{i},{j} ");
         }
         Console.WriteLine("\n");
     }

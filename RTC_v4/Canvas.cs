@@ -21,7 +21,15 @@ namespace RTC_v4
             CanvasImage = new RTTuple[height, width];
         }
 
+        public void WritePixle(RTTuple colorIn,int x,int y)
+        {
+            CanvasImage[x,y] = colorIn;
+        }
 
+        public RTTuple PixelAt(int x, int y)
+        {
+            return CanvasImage[x,y];
+        }
 
     }
 }

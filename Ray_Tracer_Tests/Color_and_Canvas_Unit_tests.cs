@@ -84,7 +84,11 @@ namespace Ray_Tracer_Tests
         [Fact]
         public void Test_8_Writing_Pixles_to_a_Canvas()
         {
-
+            Canvas c = new Canvas(10, 20);
+            RTTuple red = RTTuple.color(1, 0, 0);
+            c.WritePixle(red, 2, 3);
+            Assert.Equal(red, c.PixelAt(2, 3));
+            Assert.Equal(RTTuple.color(0,0,0), c.PixelAt(3, 2));
         }
     }
 }
