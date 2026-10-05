@@ -68,13 +68,13 @@ namespace Ray_Tracer_Tests
         public void Test_7_Creating_a_Canvas()
         {
             Canvas c = new Canvas(10, 20);
-            Assert.Equal(10, c.height);
-            Assert.Equal(20, c.width);
+            Assert.Equal(10, c.width);
+            Assert.Equal(20, c.height);
             // Loop checking color
             // All colors should be 0,0,0
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < c.height; i++)
             {
-                for (int j = 0; j < 20; j++)
+                for (int j = 0; j < c.width; j++)
                 {
                     Assert.Equal(RTTuple.color(0,0,0),c.CanvasImage[i,j]);
                 }
@@ -88,7 +88,52 @@ namespace Ray_Tracer_Tests
             RTTuple red = RTTuple.color(1, 0, 0);
             c.WritePixle(red, 2, 3);
             Assert.Equal(red, c.PixelAt(2, 3));
-            Assert.Equal(RTTuple.color(0,0,0), c.PixelAt(3, 2));
+            Assert.Equal(RTTuple.color(0,0,0), c.PixelAt(3,2));
         }
+
+        [Fact]
+        public void Test_9_Construct_A_PPM_Header()
+        {
+            Canvas c= new Canvas(5, 3);
+            var ppm = c.StringCanvasToPPM();
+            Assert.Contains("P3", ppm);
+            Assert.Contains("5 3", ppm);
+            Assert.Contains("255", ppm);
+        }
+
+        [Fact]
+        public void Test_9p5_Testing_color_clamping()
+        {
+            int c1 = Canvas.ClampColor(1.5);
+            int c2= Canvas.ClampColor(0.5);
+            int c3 = Canvas.ClampColor(-0.5);
+            Assert.Equal(255, c1);
+            Assert.Equal(128, c2);
+            Assert.Equal(255, c3);
+        }
+
+        [Fact]
+        public void Test_10_constructing_the_PPM_pixel_data()
+        {
+            Canvas c = new Canvas(5,3);
+            RTTuple c1 = RTTuple.color(1.5, 0, 0);
+            RTTuple c2 = RTTuple.color(0, 0.5, 0);
+            RTTuple c3 = RTTuple.color(-0.5, 0, 1);
+            c.WritePixle(c1, 0, 0);
+            c.WritePixle(c2, 2, 1);
+            c.WritePixle(c3, 4, 2);
+            var ppm = c.StringCanvasToPPM();
+            string expectedPixels =
+                "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n" +
+                "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n" +
+                "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n";
+
+            var ppmNormalized = ppm.Replace("\r\n", "\n");
+
+
+            Assert.Contains(expectedPixels, ppmNormalized);
+
+        }
+        
     }
 }

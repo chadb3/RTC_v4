@@ -8,6 +8,8 @@ norm_test_point();
 testing_dot();
 basic_canvas_test();
 loop_and_array_behavior_testing();
+Canvas2();
+ClampColor(0.5);
 
 return 0;
 static void test()
@@ -40,16 +42,18 @@ static void testing_dot()
 static void basic_canvas_test()
 {
     Console.WriteLine("COLOR");
-    Canvas c = new Canvas(2, 2);
+    Canvas c = new Canvas(5, 3);
     Console.WriteLine(c.CanvasImage[0, 0]);
+    Console.Write(c.StringCanvasToPPM());
+    Console.WriteLine("\n\nEnd canvas");
 }
 
 static void loop_and_array_behavior_testing()
 {
     printl("\nArray and Loop testing");
-    int[,] a = new int[2, 3];
+    int[,] a = new int[22, 3];
     printl(a[0, 0].ToString());
-    for(int i =0;i<2;i++)
+    for(int i =0;i<22;i++)
     {
         for (int j = 0; j < 3; j++)
         {
@@ -60,7 +64,34 @@ static void loop_and_array_behavior_testing()
     }
 }
 
+static void Canvas2()
+{
+    Console.WriteLine("------------");
+    Canvas c = new Canvas(5, 3);
+    var ppm = c.StringCanvasToPPM();
+    RTTuple c1 = RTTuple.color(1.5, 0, 0);
+    RTTuple c2 = RTTuple.color(0, 0.5, 0);
+    RTTuple c3 = RTTuple.color(-0.5, 0, 1);
+    c.WritePixle(c1, 0, 0);
+    c.WritePixle(c2, 2, 1);
+    c.WritePixle(c3, 4, 2);
+    Console.WriteLine(c.StringCanvasToPPM());
+    Console.WriteLine("------------");
+}
+
 static void printl(string msg)
 {
     Console.WriteLine(msg);
+}
+
+static void ClampColor(double colorIn)
+{
+    // scale fraction value to 0-255
+    double scaledColor = colorIn * 255;
+    // round it, and using "AwayFromZero" to round up to 1
+    double rounded = Math.Round(scaledColor, MidpointRounding.AwayFromZero);
+    // clamp between 0 and 255 then I can cast to int
+    // using clamp function rather then using nested min and max i used before
+    int RoundedColor=(int)Math.Clamp(rounded, 0, 255);
+    Console.WriteLine($"colorIn: {colorIn}\nrounded: {rounded}\nRoundedColor: {RoundedColor}");
 }
