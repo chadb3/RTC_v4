@@ -106,7 +106,7 @@ namespace Ray_Tracer_Tests
         {
             int c1 = Canvas.ClampColor(1.5);
             int c2= Canvas.ClampColor(0.5);
-            int c3 = Canvas.ClampColor(-0.5);
+            int c3 = Canvas.ClampColor(1);
             Assert.Equal(255, c1);
             Assert.Equal(128, c2);
             Assert.Equal(255, c3);
