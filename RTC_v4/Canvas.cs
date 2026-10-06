@@ -21,7 +21,7 @@ namespace RTC_v4
             this.height= height;
             this.width= width;
             CanvasImage = new RTTuple[height, width];
-            ppmHeader = $"P3\n{width} {height}\n255\n";
+            ppmHeader = $"P3\r\n{width} {height}\r\n255\r\n";
         }
 
         public void WritePixle(RTTuple colorIn,int x, int y)
@@ -34,10 +34,13 @@ namespace RTC_v4
             return CanvasImage[y,x];
         }
 
-        public void CanvasToPPM()
+        public void CanvasToPPM(string fileName)
         {
-            // WIP
-            // Will Write to the file
+            // Willl look to optimize the creation of ppm file in the future.
+            // Since I am using this at this time, I don't need guardrails as I know
+            // What to expect.
+            // May make it write the file to a better location
+            File.WriteAllText(fileName + ".ppm", StringCanvasToPPM());
         }
         // Previously I streamed PPM values straight to the file in my old project.
         // This rewrite follows The Ray Tracer Challenge specification more closely,
@@ -65,7 +68,7 @@ namespace RTC_v4
                     if((ll+colorString.Length+1)+1>70)
                     {
                         // ai suggestion when debugging 
-                        retString.Length--;
+                        retString.Length--; // drop the trailing space before the row's newline
                         retString.AppendLine();
                         ll = 0;
                     }
@@ -73,7 +76,7 @@ namespace RTC_v4
                     ll += colorString.Length + 1;
                 }
                 // ai suggestion when debugging 
-                retString.Length--;
+                retString.Length--; // drop the trailing space before the row's newline
                 retString.AppendLine();
             }
             return retString.ToString();

@@ -101,6 +101,11 @@ namespace Ray_Tracer_Tests
             Assert.Contains("255", ppm);
         }
 
+        /// <summary>
+        /// This test isn't in the book but is helpful to check if your ClampColor is correct
+        /// as my old one was off by one, but I didn't notice in the past because I didn't
+        /// unit test this part of the chapter, and just eyeballed the image, and briefly scanning the text of the output file.
+        /// </summary>
         [Fact]
         public void Test_9p5_Testing_color_clamping()
         {
@@ -127,13 +132,30 @@ namespace Ray_Tracer_Tests
                 "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n" +
                 "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n" +
                 "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n";
-
             var ppmNormalized = ppm.Replace("\r\n", "\n");
-
-
             Assert.Contains(expectedPixels, ppmNormalized);
-
         }
+
+        [Fact]
+        public void Test_11_splitting_long_lines_in_PPM_files()
+        {
+            Canvas c = new Canvas(10, 2);
+            RTTuple oneColor = RTTuple.color(1, 0.8, 0.6);
+            for (int y = 0; y < 2; y++)
+            {
+                for (int x = 0; x < 10; x++)
+                {
+                    c.WritePixle(oneColor, x, y);
+                }
+            }
+            string expectedPixels =
+                                    "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153\n" +
+                                    "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153\n" +
+                                    "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153\n" +
+                                    "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153\n";
+            Assert.Contains(expectedPixels, c.StringCanvasToPPM().Replace("\r\n","\n"));
+        }
+     }
         
-    }
-}
+   }
+

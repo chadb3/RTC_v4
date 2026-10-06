@@ -10,6 +10,7 @@ basic_canvas_test();
 loop_and_array_behavior_testing();
 Canvas2();
 ClampColor(0.5);
+SameColorForEveryPixleTest();
 
 return 0;
 static void test()
@@ -94,4 +95,22 @@ static void ClampColor(double colorIn)
     // using clamp function rather then using nested min and max i used before
     int RoundedColor=(int)Math.Clamp(rounded, 0, 255);
     Console.WriteLine($"colorIn: {colorIn}\nrounded: {rounded}\nRoundedColor: {RoundedColor}");
+}
+
+static void SameColorForEveryPixleTest()
+{
+    Canvas c = new Canvas(10, 2);
+    RTTuple oneColor = RTTuple.color(1, 0.8, 0.6);
+    for (int y = 0; y < 2; y++)
+    {
+        for (int x = 0; x < 10; x++)
+        {
+            c.WritePixle(oneColor, x, y);
+        }
+    }
+    Console.WriteLine($"\n\nsame color: {c.StringCanvasToPPM()}");
+    Console.WriteLine("WritingFile");
+    //c.CanvasToPPM("firstImage");
+    //Confirmed the above works
+    //it will output to RTC_v4 > RTC_v4 > bin > Debug > net10.0 
 }
