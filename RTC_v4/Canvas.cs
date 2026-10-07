@@ -21,7 +21,7 @@ namespace RTC_v4
             this.height= height;
             this.width= width;
             CanvasImage = new RTTuple[height, width];
-            ppmHeader = $"P3\r\n{width} {height}\r\n255\r\n";
+            ppmHeader = $"P3\n{width} {height}\n255\n";
         }
 
         public void WritePixle(RTTuple colorIn,int x, int y)
@@ -69,7 +69,7 @@ namespace RTC_v4
                     {
                         // ai suggestion when debugging 
                         retString.Length--; // drop the trailing space before the row's newline
-                        retString.AppendLine();
+                        retString.Append("\n");
                         ll = 0;
                     }
                     retString.Append(colorString).Append(" ");
@@ -77,7 +77,7 @@ namespace RTC_v4
                 }
                 // ai suggestion when debugging 
                 retString.Length--; // drop the trailing space before the row's newline
-                retString.AppendLine();
+                retString.Append("\n");
             }
             return retString.ToString();
         }

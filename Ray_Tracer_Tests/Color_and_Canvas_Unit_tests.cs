@@ -128,12 +128,14 @@ namespace Ray_Tracer_Tests
             c.WritePixle(c2, 2, 1);
             c.WritePixle(c3, 4, 2);
             var ppm = c.StringCanvasToPPM();
+            // Asked AI to help me create this string based off my console output
             string expectedPixels =
                 "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n" +
                 "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0\n" +
                 "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n";
             var ppmNormalized = ppm.Replace("\r\n", "\n");
             Assert.Contains(expectedPixels, ppmNormalized);
+            Assert.Contains(expectedPixels, ppm);
         }
 
         [Fact]
@@ -148,12 +150,15 @@ namespace Ray_Tracer_Tests
                     c.WritePixle(oneColor, x, y);
                 }
             }
+            // Asked AI to help me create this string based off my console output
+            // I asked as I was looking for a way similar to python's """..."""
             string expectedPixels =
                                     "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153\n" +
                                     "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153\n" +
                                     "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153\n" +
                                     "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153\n";
             Assert.Contains(expectedPixels, c.StringCanvasToPPM().Replace("\r\n","\n"));
+            Assert.Contains(expectedPixels, c.StringCanvasToPPM());
         }
      }
         
