@@ -15,6 +15,26 @@ namespace RTC_v4
         public double z {get;}
         public double w {get;}
 
+        /// <summary>
+        /// Colors
+        /// R = x
+        /// G = y
+        /// B = z
+        /// </summary>
+        public readonly double R => x;
+        public readonly double G => y;
+        public readonly double B => z;
+        // End RGB Colors.
+
+        /// <summary>
+        /// Sets up a new RTTuple Struct object.
+        /// This one should rarely be used.
+        /// used during unit tests to show operator behavior.
+        /// </summary>
+        /// <param name="x">X Value</param>
+        /// <param name="y">Y Value</param>
+        /// <param name="z">Z Value</param>
+        /// <param name="w">W Value</param>
 
         public  RTTuple(double x, double y, double z, double w)
         {
@@ -23,6 +43,7 @@ namespace RTC_v4
             this.z = z;
             this.w = w;
         }
+
 
         public static RTTuple point(double x, double y, double z)
         {
@@ -134,10 +155,17 @@ namespace RTC_v4
             return new RTTuple(-a.x, -a.y, -a.z, -a.w);
         }
 
-        /*public static RTTuple operator *(RTTuple a, RTTuple b)
+        /// <summary>
+        /// This is mainly used for colors
+        /// also called the Hadamard Product
+        /// </summary>
+        /// <param name="a">Color a (left)</param>
+        /// <param name="b">Color b (right)</param>
+        /// <returns>A new color that is the product of a and b</returns>
+        public static RTTuple operator *(RTTuple a, RTTuple b)
         {
             return new RTTuple(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
-        }*/
+        }
 
         /// <summary>
         /// Scalar multiplication

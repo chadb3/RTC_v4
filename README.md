@@ -6,7 +6,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 
 ## Current Status
 
-* starting on Chapter 1
+* Starting Chapter 3 - Matrices
 
 ## Completed Objectives 
 
@@ -22,6 +22,16 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 * ✅ looking into GitHub actions to run tests on push
 	* ✔️ Used AI to create "build-and-test.yml" and to resolve warnings
 	* ✔️ Successfully ran GitHub Actions on pushes
+	
+* ✅ Chapter 1
+	* ✔️ Tuple math operations implemented and tested
+	* ✔ End of Chapter 1 Project implemented
+	* ✔ Main difference from last time: uses a struct for significantly less overhead vs a class.
+
+* ✅ Chapter 2
+	* ✔️ Implements a Canvas to save the scene
+	* ✔️ Uses .ppm format to start
+
 
 ## AI usage
 
@@ -32,5 +42,3 @@ I’ll use it for:
 * Advice or clarification
 
 * Tab completion
-
-I will document any meaningful AI involvement as the project progresses. I don’t expect major AI usage until the later chapters of the book or when working with BVH.
