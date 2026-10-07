@@ -30,7 +30,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 
 * ✅ Chapter 2
 	* ✔️ Implements a Canvas to save the scene
-	* ✔️ Uses .ppm format to start
+	* ✔️ Uses .ppm format
 
 
 ## AI usage
