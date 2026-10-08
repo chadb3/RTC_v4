@@ -8,7 +8,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 
 ## Current Status
 
-[ ] Starting Chapter 3 - Matrices
+- [ ] Starting Chapter 3 - Matrices
 	* Creating the Matrix
 	* Multiplying Matrices
 	* Identity Matrix
