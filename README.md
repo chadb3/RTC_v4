@@ -1,5 +1,7 @@
 # RTC_v4
 
+[![Build and Test](https://github.com/chadb3/RTC_v4/blob/master/.github/workflows/build-and-test.yml/badge.svg)](https://github.com/chadb3/RTC_v4/blob/master/.github/workflows/build-and-test.yml)
+
 This is a redo of my Ray Tracer using The Ray Tracer Challenge by Jamis Buck
 
 I am redoing this in hopes to use what I have learned during previous attempts.
@@ -7,6 +9,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 ## Current Status
 
 * Starting Chapter 3 - Matrices
+* Looking to add Build and Test Status to the README.MD
 
 ## Completed Objectives 
 
@@ -22,6 +25,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 * ✅ looking into GitHub actions to run tests on push
 	* ✔️ Used AI to create "build-and-test.yml" and to resolve warnings
 	* ✔️ Successfully ran GitHub Actions on pushes
+	* ✔️ Successfully runs tests on Ubuntu-24.04, Ubuntu-26.06, and windows-latest
 	
 * ✅ Chapter 1
 	* ✔️ Tuple math operations implemented and tested
@@ -31,6 +35,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 * ✅ Chapter 2
 	* ✔️ Implements a Canvas to save the scene
 	* ✔️ Uses .ppm format
+	* ✔ End of Chapter 2 Project implemented that graphs the trajectory of projectile implemented in chapter 1.
 
 
 ## AI usage
