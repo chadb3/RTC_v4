@@ -8,8 +8,22 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 
 ## Current Status
 
-* Starting Chapter 3 - Matrices
-* Looking to add Build and Test Status to the README.MD
+[ ] Starting Chapter 3 - Matrices
+	* Creating the Matrix
+	* Multiplying Matrices
+	* Identity Matrix
+	* Transposing Matrices
+	* Inverting Matrices
+	* Determinants 
+	* sub-matrices
+	* computing the matrix minors 
+	* Computing co-factors
+	* Determinants of larger matrices 
+	* implementing inversion
+	* Chapter 3 - Putting it Together project
+	
+✅ Looking to add Build and Test Status to the README.MD
+	* Looking into separating build and test into individual tests.
 
 ## Completed Objectives 
 
