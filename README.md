@@ -1,6 +1,6 @@
 # RTC_v4
 
-[![Build and Test](https://github.com/chadb3/RTC_v4/blob/master/.github/workflows/build-and-test.yml/badge.svg)](https://github.com/chadb3/RTC_v4/blob/master/.github/workflows/build-and-test.yml)
+[![Build and Test](https://github.com/chadb3/RTC_v4/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/chadb3/RTC_v4/actions/workflows/build-and-test.yml)
 
 This is a redo of my Ray Tracer using The Ray Tracer Challenge by Jamis Buck
 
