@@ -21,7 +21,7 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 	* Determinants of larger matrices 
 	* implementing inversion
 	* Chapter 3 - Putting it Together project
-	
+
 * ✅ Looking to add Build and Test Status to the README.MD
 	* Looking into separating build and test into individual tests.
 
