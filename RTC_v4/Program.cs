@@ -11,6 +11,7 @@ loop_and_array_behavior_testing();
 Canvas2();
 ClampColor(0.5);
 SameColorForEveryPixleTest();
+TestInitilzeMatrix();
 
 return 0;
 static void test()
@@ -113,4 +114,13 @@ static void SameColorForEveryPixleTest()
     //c.CanvasToPPM("firstImage");
     //Confirmed the above works
     //it will output to RTC_v4 > RTC_v4 > bin > Debug > net10.0 
+}
+
+static void TestInitilzeMatrix()
+{
+    Matrix m = new Matrix(3, 2);
+    Console.WriteLine("Matrix Test");
+    Console.WriteLine(m.matrix[0, 0]);
+    Console.WriteLine(m.matrix[1, 0]);
+    Console.WriteLine(m.matrix[2, 0]);
 }
