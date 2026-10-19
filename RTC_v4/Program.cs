@@ -123,4 +123,6 @@ static void TestInitilzeMatrix()
     Console.WriteLine(m.matrix[0, 0]);
     Console.WriteLine(m.matrix[1, 0]);
     Console.WriteLine(m.matrix[2, 0]);
+    m[0, 0] = Math.PI;
+    Console.WriteLine(m[0, 0]);
 }
