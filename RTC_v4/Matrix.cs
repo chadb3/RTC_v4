@@ -35,27 +35,53 @@ namespace RTC_v4
             set => matrix[heightIn, widthIn] = value;
         }
 
+        public static Matrix operator *(Matrix lMatrix, Matrix rMatrix)
+        {
+            // ret matrix needs to be the same as the r matrix if their dimensions match (l.columns==r.rows)
+            Matrix RetMatrix=new Matrix(lMatrix.height,lMatrix.width);
+            if (lMatrix.height  == rMatrix.width && rMatrix.width==4)
+            {
+                for (int row = 0; row < lMatrix.height; row++)
+                {
+                    for (int col = 0; col < lMatrix.width; col++)
+                    {
+                        RetMatrix[row,col]=lMatrix[row,0]*rMatrix[0,col]+lMatrix[row,1]*rMatrix[1,col]+lMatrix[row,2]*rMatrix[2,col]+lMatrix[row,3]*rMatrix[3,col];
+                    }
+                }
+            }
+            
+            return RetMatrix;
+        }
+
+        private static bool _TestMatrixHeightWidth(Matrix lMatrix, Matrix rMatrix)
+        {
+            if (lMatrix.height == rMatrix.height && lMatrix.width == rMatrix.width)
+            {
+                return true;
+            }
+                return false;
+        }
+
         /// <summary>
         /// * summary was ai generated *
         /// * asked ai for advise as "if (!(Math.Abs(lMatrix[i, j] - rMatrix[i, j]) <= 0.00001))" was ugly *
         /// Determines whether two matrices have the same dimensions and element-wise values within an absolute
         /// tolerance of 1e-5.
         /// </summary>
-        /// <remarks>Comparison uses an absolute tolerance of 1e-5 for element equality; consider
-        /// overriding Equals(object) and GetHashCode() when providing an equality operator.</remarks>
+        /// <remarks>Comparison uses an absolute tolerance of 1e-5 for element equality;</remarks>
         /// <param name="lMatrix">Left-hand matrix to compare.</param>
         /// <param name="rMatrix">Right-hand matrix to compare.</param>
         /// <returns>true if matrices have identical dimensions and all corresponding elements differ by at most 1e-5; otherwise
         /// false.</returns>
         public static bool operator ==(Matrix lMatrix, Matrix rMatrix)
         {
-            if(lMatrix.height == rMatrix.height&&lMatrix.width == rMatrix.width)
+            if(_TestMatrixHeightWidth(lMatrix,rMatrix))
             {
                 for (int i = 0; i < lMatrix.height; i++)
                 {
                     for (int j = 0; j < rMatrix.width; j++)
                     {
-                        if ((Math.Abs(lMatrix[i, j] - rMatrix[i, j]) > 0.00001))
+                        if (Math.Abs(lMatrix[i, j] - rMatrix[i, j]) > 0.00001)
                         {
                             //lMatrix[i,j]!=rMatrix[i,j]
                             //Math.abs(lMatrix[i,j]-rMatrix[i,j])<=0.00001

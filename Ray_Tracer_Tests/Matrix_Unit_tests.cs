@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xunit.Sdk;
 
 namespace Ray_Tracer_Tests
 {
@@ -76,6 +77,29 @@ namespace Ray_Tracer_Tests
             Matrix A = new Matrix(mat1);
             Matrix B= new Matrix(mat2);
             Assert.Equal(A,B);
+        }
+
+        [Fact]
+        public void Test_5_Matrix_equality_with_different_matrices()
+        {
+            double[,] mat1 = new double[,] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 8, 7, 6 }, { 5, 4, 3, 2 } };
+            double[,] mat2 = new double[,] { { 2, 3, 4, 5 }, { 6, 7, 8, 9 }, { 8, 7, 6, 5 }, { 4, 3, 2, 1 } };
+            Matrix M1= new Matrix(mat1);
+            Matrix M2= new Matrix(mat2);
+            Assert.NotEqual(M1, M2);
+        }
+
+        [Fact]
+        public void Test_6_AxB_is_the_following_4x4_matrix()
+        {
+            double[,] mat1 = new double[,] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 8, 7, 6 }, { 5, 4, 3, 2 } };
+            double[,] mat2 = new double[,] { { -2, 1, 2, 3 }, { 3, 2, 1, -1 }, { 4, 3, 6, 5 }, { 1, 2, 7, 8 } };
+            double[,] answer = new double[,] { { 20, 22, 50, 48 }, { 44, 54, 114, 108 }, { 40, 58, 110, 102 }, { 16, 26, 46, 42 } };
+            Matrix M1 = new Matrix(mat1);
+            Matrix M2 = new Matrix(mat2);
+            Matrix Answer = new Matrix(answer);
+            // Temp Not Equal to test helper function
+            Assert.Equal(Answer, M1 * M2);
         }
     }
 }
