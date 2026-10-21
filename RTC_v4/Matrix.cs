@@ -53,6 +53,15 @@ namespace RTC_v4
             return RetMatrix;
         }
 
+        /// <summary>
+        /// Returns a new 4x4 Identity Matrix
+        /// </summary>
+        /// <returns>Returns a new 4x4 Identity Matrix: A Matrix with ones across the diagnal starting from top left.</returns>
+        public static Matrix Identity()
+        {
+            return new Matrix(new double[,] { { 1, 0, 0, 0 }, { 0, 1, 0, 0 }, { 0, 0, 1, 0 }, { 0, 0, 0, 1 } });
+        }
+
         private static bool _TestMatrixHeightWidth(Matrix lMatrix, Matrix rMatrix)
         {
             if (lMatrix.height == rMatrix.height && lMatrix.width == rMatrix.width)
