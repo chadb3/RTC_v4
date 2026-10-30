@@ -35,23 +35,7 @@ namespace RTC_v4
             set => matrix[heightIn, widthIn] = value;
         }
 
-        public static Matrix operator *(Matrix lMatrix, Matrix rMatrix)
-        {
-            // ret matrix needs to be the same as the r matrix if their dimensions match (l.columns==r.rows)
-            Matrix RetMatrix=new Matrix(lMatrix.height,lMatrix.width);
-            if (lMatrix.height  == rMatrix.width && rMatrix.width==4)
-            {
-                for (int row = 0; row < lMatrix.height; row++)
-                {
-                    for (int col = 0; col < lMatrix.width; col++)
-                    {
-                        RetMatrix[row,col]=lMatrix[row,0]*rMatrix[0,col]+lMatrix[row,1]*rMatrix[1,col]+lMatrix[row,2]*rMatrix[2,col]+lMatrix[row,3]*rMatrix[3,col];
-                    }
-                }
-            }
-            
-            return RetMatrix;
-        }
+
 
         /// <summary>
         /// Returns a new 4x4 Identity Matrix
@@ -69,6 +53,38 @@ namespace RTC_v4
                 return true;
             }
                 return false;
+        }
+
+        public static Matrix Transpose(Matrix MatrixIn)
+        {
+            Matrix ret = new Matrix(MatrixIn.width, MatrixIn.height);
+            for (int i = 0; i < MatrixIn.height; i++)
+            {
+                for (int j = 0; j < MatrixIn.width; j++)
+                {
+                    ret[j,i]= MatrixIn[i, j];
+                }
+            } 
+            return ret;
+        }
+
+
+        public static Matrix operator *(Matrix lMatrix, Matrix rMatrix)
+        {
+            // ret matrix needs to be the same as the r matrix if their dimensions match (l.columns==r.rows)
+            Matrix RetMatrix = new Matrix(lMatrix.height, lMatrix.width);
+            if (lMatrix.height == rMatrix.width && rMatrix.width == 4)
+            {
+                for (int row = 0; row < lMatrix.height; row++)
+                {
+                    for (int col = 0; col < lMatrix.width; col++)
+                    {
+                        RetMatrix[row, col] = lMatrix[row, 0] * rMatrix[0, col] + lMatrix[row, 1] * rMatrix[1, col] + lMatrix[row, 2] * rMatrix[2, col] + lMatrix[row, 3] * rMatrix[3, col];
+                    }
+                }
+            }
+
+            return RetMatrix;
         }
 
         /// <summary>

@@ -106,8 +106,16 @@ namespace Ray_Tracer_Tests
         public void Test_7_Multiplying_a_matrix_by_the_identity_matrix()
         {
             Matrix identiy_matrix = Matrix.Identity();
-            Matrix A = new Matrix(new double[,] { { 0, 1, 2, 44 }, { 1, 2, 4, 8 }, { 2, 4, 8, 16 }, { 4, 8, 16, 32 } });
+            Matrix A = new Matrix(new double[,] { { 0, 1, 2, 4 }, { 1, 2, 4, 8 }, { 2, 4, 8, 16 }, { 4, 8, 16, 32 } });
             Assert.Equal(A, A * identiy_matrix);
+        }
+
+        [Fact]
+        public void test_8_transposing_a_matrix()
+        {
+            Matrix A = new Matrix(new double[,] { { 0, 9, 3, 0 }, { 9, 8, 0, 8 }, { 1, 8, 5, 3 }, { 0, 0, 5, 8 } });
+            Matrix result = new Matrix(new double[,] { { 0, 9, 1, 0 }, { 9, 8, 8, 0 }, { 3, 0, 5, 5 }, { 0, 8, 3, 8 } });
+            Assert.Equal(result, Matrix.Transpose(A));
         }
     }
 }
