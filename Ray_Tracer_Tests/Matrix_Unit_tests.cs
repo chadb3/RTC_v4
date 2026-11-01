@@ -117,5 +117,13 @@ namespace Ray_Tracer_Tests
             Matrix result = new Matrix(new double[,] { { 0, 9, 1, 0 }, { 9, 8, 8, 0 }, { 3, 0, 5, 5 }, { 0, 8, 3, 8 } });
             Assert.Equal(result, Matrix.Transpose(A));
         }
+
+        [Fact]
+        public void test_9_Calculating_the_determinant_ofa_2x2_matrix()
+        {
+            Matrix A = new Matrix(new double[,] { { 1, 5 }, { -3, 2 } });
+            double ans = 17;
+            Assert.Equal(ans,Matrix.Determinant(A));
+        }
     }
 }

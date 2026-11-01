@@ -68,6 +68,12 @@ namespace RTC_v4
             return ret;
         }
 
+        public static double Determinant(Matrix TwoByTwo)
+        {
+            double ret = TwoByTwo[0,0]*TwoByTwo[1,1]-TwoByTwo[0,1]*TwoByTwo[1,0];
+            return ret;
+        }
+
 
         public static Matrix operator *(Matrix lMatrix, Matrix rMatrix)
         {
