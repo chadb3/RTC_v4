@@ -1,5 +1,5 @@
 # RTC_v4
-
+[![Build](https://github.com/chadb3/RTC_v4/actions/workflows/build.yml/badge.svg)](https://github.com/chadb3/RTC_v4/actions/workflows/build.yml)
 [![Build and Test](https://github.com/chadb3/RTC_v4/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/chadb3/RTC_v4/actions/workflows/build-and-test.yml)
 
 This is a redo of my Ray Tracer using The Ray Tracer Challenge by Jamis Buck
@@ -15,8 +15,8 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 	* Transposing Matrices
 	* Inverting Matrices
 	* Determinants 
-	* sub-matrices
-	* computing the matrix minors 
+	* Sub-matrices
+	* Computing the matrix minors 
 	* Computing co-factors
 	* Determinants of larger matrices 
 	* implementing inversion
