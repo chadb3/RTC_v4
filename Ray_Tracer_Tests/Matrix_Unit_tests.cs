@@ -125,5 +125,11 @@ namespace Ray_Tracer_Tests
             double ans = 17;
             Assert.Equal(ans,Matrix.Determinant(A));
         }
+
+        [Fact]
+        public void quick_fail_test()
+        {
+            Assert.Equal(2, 3);
+        }
     }
 }
