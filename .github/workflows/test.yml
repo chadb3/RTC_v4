@@ -1,4 +1,4 @@
-name: Build and Test
+name: Test
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
@@ -9,30 +9,7 @@ on:
     branches: ["master"]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-24.04, ubuntu-26.04, windows-latest]
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v5
-        with:
-          dotnet-version: "10.0.x"
-
-      - name: Restore dependencies
-        run: dotnet restore RTC_v4.slnx
-
-      - name: Build
-        run: dotnet build RTC_v4.slnx --configuration Release --no-restore
-
   test:
-    needs: build
     strategy:
       matrix:
         os: [ubuntu-24.04, ubuntu-26.04, windows-latest]
