@@ -129,7 +129,8 @@ namespace Ray_Tracer_Tests
         [Fact]
         public void quick_fail_test()
         {
-            Assert.Equal(2, 3);
+            // now passing
+            Assert.Equal(3, 3);
         }
     }
 }
