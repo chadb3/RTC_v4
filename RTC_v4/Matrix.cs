@@ -122,7 +122,7 @@ namespace RTC_v4
                 }
                 return true;
             }
-            return false
+            return false;
         }
 
         public static bool operator !=(Matrix lMatrix, Matrix rMatrix)
