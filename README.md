@@ -8,13 +8,13 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 
 ## Current Status
 
-- [ ] Starting Chapter 3 - Matrices
-	* Creating the Matrix
-	* Multiplying Matrices
-	* Identity Matrix
-	* Transposing Matrices
-	* Inverting Matrices
-	* Determinants 
+- [ ] Chapter 3 - Matrices
+	* ✔ Creating the Matrix
+	* ✔ Multiplying Matrices
+	* ✔ Identity Matrix
+	* ✔ Transposing Matrices
+	* ✔ Inverting Matrices
+	* ✔ Determinants 
 	* Sub-matrices
 	* Computing the matrix minors 
 	* Computing co-factors
@@ -41,12 +41,12 @@ I am redoing this in hopes to use what I have learned during previous attempts.
 	* ✔️ Successfully ran GitHub Actions on pushes
 	* ✔️ Successfully runs tests on Ubuntu-24.04, Ubuntu-26.06, and windows-latest
 	
-* ✅ Chapter 1
+* ✅ Chapter 1 - Tuples
 	* ✔️ Tuple math operations implemented and tested
 	* ✔ End of Chapter 1 Project implemented
 	* ✔ Main difference from last time: uses a struct for significantly less overhead vs a class.
 
-* ✅ Chapter 2
+* ✅ Chapter 2 - Canvas
 	* ✔️ Implements a Canvas to save the scene
 	* ✔️ Uses .ppm format
 	* ✔ End of Chapter 2 Project implemented that graphs the trajectory of projectile implemented in chapter 1.

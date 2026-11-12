@@ -68,9 +68,30 @@ namespace RTC_v4
             return ret;
         }
 
+        /// <summary>
+        /// 
+        /// </summary> Returns the 2x2 Matrix determinant
+        /// <param name="TwoByTwo"></param>
+        /// <returns>double</returns>
         public static double Determinant(Matrix TwoByTwo)
         {
             double ret = TwoByTwo[0,0]*TwoByTwo[1,1]-TwoByTwo[0,1]*TwoByTwo[1,0];
+            return ret;
+        }
+
+        /// <summary>
+        /// submatrix of a 4x4 should return 3x3
+        /// submatrix of a 3x3 should return 2x2
+        /// The Row and Col listed are the Ones to NOT include
+        /// </summary>
+        /// <param name="MatrixA"></param>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public static Matrix Submatrix(Matrix MatrixA, int row, int col)
+        {
+            Matrix ret = new Matrix(MatrixA.width - 1, MatrixA.height - 1);
+
             return ret;
         }
 
