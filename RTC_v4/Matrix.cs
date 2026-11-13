@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace RTC_v4
@@ -82,7 +83,7 @@ namespace RTC_v4
         /// <summary>
         /// submatrix of a 4x4 should return 3x3
         /// submatrix of a 3x3 should return 2x2
-        /// The Row and Col listed are the Ones to NOT include
+        /// The Row and Col listed are excluded.
         /// </summary>
         /// <param name="MatrixA"></param>
         /// <param name="row"></param>
@@ -91,7 +92,23 @@ namespace RTC_v4
         public static Matrix Submatrix(Matrix MatrixA, int row, int col)
         {
             Matrix ret = new Matrix(MatrixA.width - 1, MatrixA.height - 1);
-
+            // Still need to loop through the whole original matrix;
+            // but need to skip the listed row and col
+            for (int i = 0; i < MatrixA.width; i++)
+            {
+                for (int j = 0; j < MatrixA.height; j++)
+                {
+                    if (i != row && j != col)
+                    {
+                        Console.WriteLine("hit");
+                        Console.WriteLine($"{MatrixA[i, j]}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Skipped+[{i},{j}]");
+                    }
+                }
+            }
             return ret;
         }
 
