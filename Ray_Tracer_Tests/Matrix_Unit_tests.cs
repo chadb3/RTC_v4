@@ -127,10 +127,21 @@ namespace Ray_Tracer_Tests
         }
 
         [Fact]
-        public void quick_fail_test()
+        public void test_10_a_submatrix_of_a_3x3_matrix_is_a_2x2_matrix()
         {
-            // now passing
-            Assert.Equal(3, 3);
+            Matrix A = new Matrix(new double[,] { { 1, 5, 0 }, { -3, 2, 7 }, { 0, 6, -3 } });
+            Matrix B = Matrix.Submatrix(A, 0, 2);
+            Matrix answer = new Matrix(new double[,] { { -3, 2 }, { 0, 6 } });
+            Assert.Equal(answer, B);
+        }
+
+        [Fact]
+        public void test_11_a_submatrix_of_a_4x4_matrix_is_a_3x3_matrix()
+        {
+            Matrix A = new Matrix(new double[,] { { -6, 1, 1, 6 }, { -8, 5, 8, 6 }, { -1, 0, 8, 2 }, { -7, 1, -1, 1 } });
+            Matrix B = Matrix.Submatrix(A, 2, 1);
+            Matrix answer = new Matrix(new double[,] { { -6, 1, 6 }, { -8, 8, 6 }, { -7, -1, 1 } });
+            Assert.Equal(answer, B);
         }
     }
 }

@@ -130,7 +130,9 @@ static void TestInitilzeMatrix()
 
 static void test_submatrix()
 {
+    Console.WriteLine("test_submatrix\n");
     Matrix A = new Matrix(new double[,] { { 1, 5, 0 }, { -3, 2, 7 }, { 0, 6, -3 } });
     Matrix B = Matrix.Submatrix(A, 0, 2);
+    Console.WriteLine(A[1, 0]);
 }
  

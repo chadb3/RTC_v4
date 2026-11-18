@@ -92,22 +92,45 @@ namespace RTC_v4
         public static Matrix Submatrix(Matrix MatrixA, int row, int col)
         {
             Matrix ret = new Matrix(MatrixA.width - 1, MatrixA.height - 1);
+            int x_index = 0, y_index = 0;
             // Still need to loop through the whole original matrix;
             // but need to skip the listed row and col
+            // Note 1: whole row is skipped. if i == row then nothing in the loop matters. x
+            // Note 2: skips 1 index of the col unless it is on the skipped row.
+            //
             for (int i = 0; i < MatrixA.width; i++)
             {
+
                 for (int j = 0; j < MatrixA.height; j++)
                 {
+                    // if this is hit both i and j are not skipped.
                     if (i != row && j != col)
                     {
-                        Console.WriteLine("hit");
-                        Console.WriteLine($"{MatrixA[i, j]}");
+                        // Debug print
+                        // Console.WriteLine($"y: {y_index} - x: {x_index} = {MatrixA[i,j]}");
+                        ret[y_index,x_index] = MatrixA[i,j];
                     }
-                    else
+                    // Debug print
+                    // if this is hit either i = row or j = col 
+                    //else
+                    //{
+                        //Console.WriteLine($"Skipped+[{i},{j}]");
+                    //}
+                    //if not on the col then increase the index
+                    // note this is after it gets set above
+                    if (j != col)
                     {
-                        Console.WriteLine($"Skipped+[{i},{j}]");
+                        x_index++;
                     }
+
                 }
+                // if not on the skip row increase the index
+                if (i != row)
+                {
+                    y_index += 1;
+                }
+                //outside the loop - reset this index
+                x_index = 0;
             }
             return ret;
         }
